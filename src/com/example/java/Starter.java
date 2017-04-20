@@ -6,7 +6,7 @@ public class Starter {
 
     static String newStarter;
     static int starterHealth;
-    static int starterStrength;
+    static int starterAttack;
     static int starterSpeed;
 
 // Possible change to getting user input from a dialogue window? https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
@@ -35,22 +35,22 @@ public class Starter {
         JOptionPane.showMessageDialog(null, "Ah so you have chosen " + newStarter + "! Great choice.");
         if (newStarter == "Charmander") {
             starterHealth = 20;
-            starterStrength = 6;
+            starterAttack = 6;
             starterSpeed = 4;
             JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
-                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+                    + starterHealth + "\n Strength: " + starterAttack + "\n Speed: " + starterSpeed);
         } else if (newStarter == "Squirtle") {
             starterHealth = 25;
-            starterStrength = 4;
+            starterAttack = 4;
             starterSpeed = 5;
             JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
-                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+                    + starterHealth + "\n Strength: " + starterAttack + "\n Speed: " + starterSpeed);
         } else if (newStarter == "Bulbasaur") {
             starterHealth = 20;
-            starterStrength = 5;
+            starterAttack = 5;
             starterSpeed = 5;
             JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
-                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+                    + starterHealth + "\n Strength: " + starterAttack + "\n Speed: " + starterSpeed);
         }
     }
 }

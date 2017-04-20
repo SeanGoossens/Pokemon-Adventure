@@ -34,7 +34,7 @@ public class Pokemon {
 
     public static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
-                + pokemon2.health + "\n attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
+                + pokemon2.health + "\n Attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
         showMessageDialog(null, pokemon1.name + " begins the fight against " + pokemon2.name);
         do {
 
