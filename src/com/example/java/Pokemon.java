@@ -34,6 +34,7 @@ public class Pokemon {
         this.speed = speed;
     }
 
+    // Need to change this so the battle ends right as the Pokemon hits 0 HP, not after the loop.
     public static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
                 + pokemon2.health + "\n Strength: " + pokemon2.strength + "\n Speed: " + pokemon2.speed);
