@@ -1,11 +1,5 @@
 package com.example.java;
 
-/**
- * Created by sgoossens on 4/18/2017.
- */
-
-import javax.swing.*;
-
 import javax.swing.*;
 
 public class Starter {
@@ -15,9 +9,11 @@ public class Starter {
     static int starterStrength;
     static int starterSpeed;
 
+// Possible change to getting user input from a dialogue window? https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
+
     public static String selectStarter() {
         JOptionPane.showMessageDialog(null, "Welcome trainer! Please select your starter!");
-        int starter = Integer.parseInt(JOptionPane.showInputDialog("Which starter will you choose?\n\nCharmander = 1, Squirtle = 2, Bulbasaur = 3\n"));
+        int starter = Integer.parseInt(JOptionPane.showInputDialog("Which starter will you choose?\n\nCharmander = 1, Squirtle = 2, Bulbasaur = 3\n\n"));
         if (starter == 1) {
             JOptionPane.showMessageDialog(null, "You have chosen Charmander!");
             newStarter = "Charmander";

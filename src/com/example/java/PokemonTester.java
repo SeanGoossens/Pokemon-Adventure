@@ -1,10 +1,5 @@
 package com.example.java;
 
-import javax.swing.*;
-
-/**
- * Created by sgoossens on 4/18/2017.
- */
 public class PokemonTester{
     Pokemon pidgey;
     Pokemon ratatta;
