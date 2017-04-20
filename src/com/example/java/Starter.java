@@ -1,0 +1,61 @@
+package com.example.java;
+
+/**
+ * Created by sgoossens on 4/18/2017.
+ */
+
+import javax.swing.*;
+
+import javax.swing.*;
+
+public class Starter {
+
+    static String newStarter;
+    static int starterHealth;
+    static int starterStrength;
+    static int starterSpeed;
+
+    public static String selectStarter() {
+        JOptionPane.showMessageDialog(null, "Welcome trainer! Please select your starter!");
+        JOptionPane.showMessageDialog(null, "Charmander = 1, Squirtle = 2, Bulbasaur = 3");
+        int starter = Integer.parseInt(JOptionPane.showInputDialog("Which starter will you choose?"));
+        if (starter == 1) {
+            JOptionPane.showMessageDialog(null, "You have chosen Charmander!");
+            newStarter = "Charmander";
+            return newStarter;
+        } else if (starter == 2) {
+            JOptionPane.showMessageDialog(null, "You have chosen Squirtle!");
+            newStarter = "Squirtle";
+            return newStarter;
+        } else if (starter == 3) {
+            JOptionPane.showMessageDialog(null, "You have chosen Bulbasaur!");
+            newStarter = "Bulbasaur";
+            return newStarter;
+        } else
+            JOptionPane.showMessageDialog(null, "You have entered an incorrect starter, please try again!");
+        return null;
+    }
+
+    public static void getNewStarter(String newStarter) {
+        JOptionPane.showMessageDialog(null, "Ah so you have chosen " + newStarter + "! Great choice.");
+        if (newStarter == "Charmander") {
+            starterHealth = 20;
+            starterStrength = 6;
+            starterSpeed = 4;
+            JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
+                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+        } else if (newStarter == "Squirtle") {
+            starterHealth = 25;
+            starterStrength = 4;
+            starterSpeed = 5;
+            JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
+                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+        } else if (newStarter == "Bulbasaur") {
+            starterHealth = 20;
+            starterStrength = 5;
+            starterSpeed = 5;
+            JOptionPane.showMessageDialog(null, "Your " + newStarter + "'s stats are: \n Health: "
+                    + starterHealth + "\n Strength: " + starterStrength + "\n Speed: " + starterSpeed);
+        }
+    }
+}
