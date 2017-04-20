@@ -17,8 +17,7 @@ public class Starter {
 
     public static String selectStarter() {
         JOptionPane.showMessageDialog(null, "Welcome trainer! Please select your starter!");
-        JOptionPane.showMessageDialog(null, "Charmander = 1, Squirtle = 2, Bulbasaur = 3");
-        int starter = Integer.parseInt(JOptionPane.showInputDialog("Which starter will you choose?"));
+        int starter = Integer.parseInt(JOptionPane.showInputDialog("Which starter will you choose?\n\nCharmander = 1, Squirtle = 2, Bulbasaur = 3\n"));
         if (starter == 1) {
             JOptionPane.showMessageDialog(null, "You have chosen Charmander!");
             newStarter = "Charmander";
