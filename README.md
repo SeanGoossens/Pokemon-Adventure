@@ -13,4 +13,4 @@ FEATURES TO IMPLEMENT
 - Tweak damage range instead of 0-max
 - <s>Randomize wild pokemon stats
 - Create random pokemon
-- Select a random wild pokemon
+- <s>Select a random wild pokemon

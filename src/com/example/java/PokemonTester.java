@@ -13,7 +13,9 @@ public class PokemonTester{
         int starterSpeed = Starter.starterSpeed;
 
         Pokemon starter = new Pokemon(newStarter, starterHealth, starterAttack, starterSpeed);
-        Pokemon.battle(starter, WildPokemon.rattata);
+
+        WildPokemon wildPokemon = new WildPokemon();
+        Pokemon.battle(starter, wildPokemon.getRandomPokemon());
     }
 
 }
