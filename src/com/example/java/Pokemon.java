@@ -30,7 +30,7 @@ public class Pokemon {
         this.speed = speed;
     }
 
-    // Got it to do random damage, but not state how much damage was done.
+
 
     public static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
@@ -40,15 +40,17 @@ public class Pokemon {
 
             if (pokemon1.health > 0 && pokemon2.health > 0) {
                 showMessageDialog(null, pokemon1.name + " attacks " + pokemon2.name);
-                pokemon2.health = pokemon2.health - randomDamage(0,pokemon1.attack);
+                pokemon1.randomDamage = randomDamage(0,pokemon1.attack);
+                pokemon2.health = pokemon2.health - pokemon1.randomDamage;
                 showMessageDialog(null, pokemon1.name + " does " + pokemon1.randomDamage + " damage to " +
                         pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
             }
 
             if (pokemon1.health > 0 && pokemon2.health > 0) {
                 showMessageDialog(null, pokemon2.name + " attacks " + pokemon1.name);
-                pokemon1.health = pokemon1.health - pokemon2.attack;
-                showMessageDialog(null, pokemon2.name + " does " + pokemon2.attack + " damage to " +
+                pokemon2.randomDamage = randomDamage(0,pokemon2.attack);
+                pokemon1.health = pokemon1.health - pokemon2.randomDamage;
+                showMessageDialog(null, pokemon2.name + " does " + pokemon2.randomDamage + " damage to " +
                         pokemon1.name + " and " + pokemon1.name + " has " + pokemon1.health + " left.");
             }
 
@@ -69,6 +71,7 @@ public class Pokemon {
     // Adding this to the text gives a random amount of damage. However I need to store it in a variable
     public static int randomDamage(int min, int max) {
         int range = (max - min) + 1;
-        return (int)(Math.random() * range) + min;
+        int randomDamage =  (int)(Math.random() * range) + min;
+        return randomDamage;
     }
 }

@@ -9,4 +9,5 @@ FEATURES TO IMPLEMENT
 - <s>Stop health from dropping to below 0 during battles</s>
 - Add experience
 - Add levels and stat increases
-- Make damage on a +- range instead of static
+- <s>Make damage on a +- range instead of static</s>
+- Tweak damage range instead of 0-max
