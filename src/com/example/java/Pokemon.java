@@ -24,6 +24,7 @@ public class Pokemon {
         assert speed >= 1;
         assert speed <= 300;
 
+
         this.name = name;
         this.health = health;
         this.attack = attack;
@@ -35,9 +36,16 @@ public class Pokemon {
     static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
                 + pokemon2.health + "\n Attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
+
+        if (pokemon1.speed > pokemon2.speed){
+            showMessageDialog(null, pokemon1.name + " begins the fight against " + pokemon2.name);
+        }
+        else if (pokemon2.speed > pokemon1.speed) {
+            showMessageDialog(null, pokemon2.name + " begins the fight against " + pokemon1.name);
+        }
         do {
             if (pokemon1.speed > pokemon2.speed) {
-                showMessageDialog(null, pokemon1.name + " begins the fight against " + pokemon2.name);
+
                 if (pokemon1.health > 0 && pokemon2.health > 0) {
                     showMessageDialog(null, pokemon1.name + " attacks " + pokemon2.name);
                     // Does a random amount of damage from 0 to the Pokemon's attack value
@@ -57,7 +65,6 @@ public class Pokemon {
                 }
             }
             else if (pokemon2.speed > pokemon1.speed) {
-                showMessageDialog(null, pokemon2.name + " begins the fight against " + pokemon1.name);
                 if (pokemon1.health > 0 && pokemon2.health > 0) {
                     showMessageDialog(null,pokemon2.name + " attacks " + pokemon1.name);
                     // Does a random amount of damage from 0 to the Pokemon's attack value

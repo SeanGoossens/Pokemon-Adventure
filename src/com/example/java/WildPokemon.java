@@ -6,18 +6,21 @@ import java.util.Random;
 
 class WildPokemon {
 
-    private static int randomHealth(int min, int max) {
+    private int randomHealth(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
     }
-    private static int randomAttack(int min, int max) {
+    private int randomAttack(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
     }
-    private static int randomSpeed(int min, int max) {
+    private int randomSpeed(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
     }
+
+    // http://www.codejava.net/java-core/collections/java-list-collection-tutorial-and-examples
+    // Study how to do lists and why this code works
 
     private Random rand = new Random();
     private List<Pokemon> pokemonList;
