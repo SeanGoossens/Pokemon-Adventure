@@ -35,23 +35,46 @@ public class Pokemon {
     public static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
                 + pokemon2.health + "\n Attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
-        showMessageDialog(null, pokemon1.name + " begins the fight against " + pokemon2.name);
         do {
+            if (pokemon1.speed > pokemon2.speed) {
+                showMessageDialog(null, pokemon1.name + " begins the fight against " + pokemon2.name);
+                if (pokemon1.health > 0 && pokemon2.health > 0) {
+                    showMessageDialog(null, pokemon1.name + " attacks " + pokemon2.name);
+                    // Does a random amount of damage from 0 to the Pokemon's attack value
+                    pokemon1.randomDamage = randomDamage(0, pokemon1.attack);
+                    pokemon2.health = pokemon2.health - pokemon1.randomDamage;
+                    showMessageDialog(null, pokemon1.name + " does " + pokemon1.randomDamage + " damage to " +
+                            pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                }
 
-            if (pokemon1.health > 0 && pokemon2.health > 0) {
-                showMessageDialog(null, pokemon1.name + " attacks " + pokemon2.name);
-                pokemon1.randomDamage = randomDamage(0,pokemon1.attack);
-                pokemon2.health = pokemon2.health - pokemon1.randomDamage;
-                showMessageDialog(null, pokemon1.name + " does " + pokemon1.randomDamage + " damage to " +
-                        pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                if (pokemon1.health > 0 && pokemon2.health > 0) {
+                    showMessageDialog(null, pokemon2.name + " attacks " + pokemon1.name);
+                    // Does a random amount of damage from 0 to the Pokemon's attack value
+                    pokemon2.randomDamage = randomDamage(0, pokemon2.attack);
+                    pokemon1.health = pokemon1.health - pokemon2.randomDamage;
+                    showMessageDialog(null, pokemon2.name + " does " + pokemon2.randomDamage + " damage to " +
+                            pokemon1.name + " and " + pokemon1.name + " has " + pokemon1.health + " left.");
+                }
             }
+            else if (pokemon2.speed > pokemon1.speed) {
+                showMessageDialog(null, pokemon2.name + " begins the fight against " + pokemon1.name);
+                if (pokemon1.health > 0 && pokemon2.health > 0) {
+                    showMessageDialog(null,pokemon2.name + " attacks " + pokemon1.name);
+                    // Does a random amount of damage from 0 to the Pokemon's attack value
+                    pokemon2.randomDamage = randomDamage(0, pokemon2.attack);
+                    pokemon1.health = pokemon1.health - pokemon2.randomDamage;
+                    showMessageDialog(null, pokemon2.name + " does " + pokemon2.randomDamage + " damage to " +
+                            pokemon1.name + " and " + pokemon1.name + " has " + pokemon1.health + " left.");
+                }
+                if (pokemon1.health > 0 && pokemon2.health > 0) {
+                    showMessageDialog(null, pokemon1.name + " attacks " + pokemon2.name);
+                    // Does a random amount of damage from 0 to the Pokemon's attack value
+                    pokemon1.randomDamage = randomDamage(0, pokemon1.attack);
+                    pokemon2.health = pokemon2.health - pokemon1.randomDamage;
+                    showMessageDialog(null, pokemon1.name + " does " + pokemon1.randomDamage + " damage to " +
+                            pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                }
 
-            if (pokemon1.health > 0 && pokemon2.health > 0) {
-                showMessageDialog(null, pokemon2.name + " attacks " + pokemon1.name);
-                pokemon2.randomDamage = randomDamage(0,pokemon2.attack);
-                pokemon1.health = pokemon1.health - pokemon2.randomDamage;
-                showMessageDialog(null, pokemon2.name + " does " + pokemon2.randomDamage + " damage to " +
-                        pokemon1.name + " and " + pokemon1.name + " has " + pokemon1.health + " left.");
             }
 
 
@@ -69,9 +92,8 @@ public class Pokemon {
 
 
     // Adding this to the text gives a random amount of damage. However I need to store it in a variable
-    public static int randomDamage(int min, int max) {
+    private static int randomDamage(int min, int max) {
         int range = (max - min) + 1;
-        int randomDamage =  (int)(Math.random() * range) + min;
-        return randomDamage;
+        return (int)(Math.random() * range) + min;
     }
 }

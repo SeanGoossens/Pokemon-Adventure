@@ -11,7 +11,7 @@ public class PokemonTester{
         int starterAttack = Starter.starterAttack;
         int starterSpeed = Starter.starterSpeed;
 
-        Pokemon rattata = new Pokemon("Rattata",15,2,3);
+        Pokemon rattata = new Pokemon("Rattata",15,2,50);
         Pokemon pidgey = new Pokemon("Pidgey",15,3,2);
         Pokemon starter = new Pokemon(newStarter, starterHealth, starterAttack, starterSpeed);
         Pokemon.battle(starter, rattata);
