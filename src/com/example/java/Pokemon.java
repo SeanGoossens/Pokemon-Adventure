@@ -86,12 +86,7 @@ public class Pokemon {
 
     }
 
-    /* The ultimate goal here is to take the attack stat and convert it to a random integer
-     * to give or take a few points to add some variety to the damage done
-     */
 
-
-    // Adding this to the text gives a random amount of damage. However I need to store it in a variable
     private static int randomDamage(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
