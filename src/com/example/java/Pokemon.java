@@ -32,7 +32,7 @@ public class Pokemon {
 
 
 
-    public static void battle(Pokemon pokemon1, Pokemon pokemon2) {
+    static void battle(Pokemon pokemon1, Pokemon pokemon2) {
         showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
                 + pokemon2.health + "\n Attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
         do {
