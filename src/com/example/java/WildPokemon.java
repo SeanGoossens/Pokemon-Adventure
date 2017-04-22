@@ -27,9 +27,9 @@ class WildPokemon {
 
     public WildPokemon(){
         pokemonList = new ArrayList();
-        Pokemon rattata = new Pokemon("Rattata",randomHealth(15,20),randomAttack(2,5),randomSpeed(2,6));
+        Pokemon rattata = new Pokemon("Rattata",randomHealth(15,20),randomAttack(2,5),randomSpeed(3,6));
         pokemonList.add(rattata);
-        Pokemon pidgey = new Pokemon("Pidgey",randomHealth(10,17),randomAttack(3,4),randomSpeed(3,5));
+        Pokemon pidgey = new Pokemon("Pidgey",randomHealth(10,17),randomAttack(3,4),randomSpeed(2,5));
         pokemonList.add(pidgey);
     }
 
