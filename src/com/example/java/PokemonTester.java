@@ -1,9 +1,10 @@
 package com.example.java;
 
-public class PokemonTester{
+import javax.swing.*;
 
+public class PokemonTester {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Starter.selectStarter();
         Starter.getNewStarter(Starter.newStarter);
 
@@ -16,6 +17,6 @@ public class PokemonTester{
 
         WildPokemon wildPokemon = new WildPokemon();
         Pokemon.battle(starter, wildPokemon.getRandomPokemon());
-    }
 
+    }
 }

@@ -11,6 +11,9 @@ FEATURES TO IMPLEMENT
 - Add levels and stat increases
 - <s>Make damage on a +- range instead of static</s>
 - Tweak damage range instead of 0-max
-- <s>Randomize wild pokemon stats
+- <s>Randomize wild pokemon stats</s>
 - Create random pokemon
-- <s>Select a random wild pokemon
+- <s>Select a random wild pokemon</s>
+- Add new commands (<s>attack</s>, special attack, <s>run</s>)
+- <s>Create a randomizer if both pokemon have the same speed</s>
+- Create battle again dialog
