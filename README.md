@@ -18,3 +18,4 @@ FEATURES TO IMPLEMENT
 - Special Attacks (Burn, Paralyze, Leech Seed?)
 - <s>Create a randomizer if both pokemon have the same speed</s>
 - Create battle again dialog
+- Creat pokemon centers
