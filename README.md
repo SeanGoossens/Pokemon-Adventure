@@ -15,5 +15,6 @@ FEATURES TO IMPLEMENT
 - Create random pokemon
 - <s>Select a random wild pokemon</s>
 - Add new commands (<s>attack</s>, special attack, <s>run</s>)
+- Special Attacks (Burn, Paralyze, Leech Seed?)
 - <s>Create a randomizer if both pokemon have the same speed</s>
 - Create battle again dialog
