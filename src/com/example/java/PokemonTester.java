@@ -1,22 +1,25 @@
 package com.example.java;
 
-import javax.swing.*;
+import static com.example.java.Pokemon.battle;
+
+import static com.example.java.Starter.*;
+
+
 
 public class PokemonTester {
 
+    public static WildPokemon wildPokemon;
+
+
     public static void main(String[] args) {
         Starter.selectStarter();
-        Starter.getNewStarter(Starter.newStarter);
+        Starter.getNewStarter(newStarter);
+        Starter starter = new Starter(newStarter, maxStarterHealth, starterAttack, starterSpeed);
 
-        String newStarter = Starter.newStarter;
-        int starterHealth = Starter.starterHealth;
-        int starterAttack = Starter.starterAttack;
-        int starterSpeed = Starter.starterSpeed;
 
-        Pokemon starter = new Pokemon(newStarter, starterHealth, starterAttack, starterSpeed);
 
         WildPokemon wildPokemon = new WildPokemon();
-        Pokemon.battle(starter, wildPokemon.getRandomPokemon());
+        battle(starter, wildPokemon.getRandomPokemon());
 
-    }
-}
+
+}}
