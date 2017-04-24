@@ -10,13 +10,13 @@ FEATURES TO IMPLEMENT
 - <s>Add experience</s>
 - <s>Add levels and stat increases</s>
 - <s>Make damage on a +- range instead of static</s>
-- Tweak damage range instead of 0-max
 - <s>Randomize wild pokemon stats</s>
-- Create random pokemon
 - <s>Select a random wild pokemon</s>
-- Add new commands (<s>attack</s>, special attack, <s>run</s>)
-- Special Attacks (Burn, Paralyze, Leech Seed?)
 - <s>Create a randomizer if both pokemon have the same speed</s>
 - <s>Create battle again dialog</s>
+- Tweak damage range instead of 0-max
+- Create random pokemon
+- Add new commands (<s>attack</s>, special attack, <s>run</s>)
+- Special Attacks (Burn, Paralyze, Leech Seed?)
 - Create pokemon centers
 - Create pokemon zones

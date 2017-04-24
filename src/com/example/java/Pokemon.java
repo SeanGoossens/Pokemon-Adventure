@@ -10,10 +10,10 @@ import static javax.swing.JOptionPane.*;
 public class Pokemon {
 
     private String name;
-    public static int health;
-    public static int attack;
-    public static int speed;
-    public static boolean status;
+    private static int health;
+    private static int attack;
+    private static int speed;
+    private static boolean status;
     private static int randomDamage;
     private static int getExp;
     private static int totalExp;
@@ -51,21 +51,21 @@ public class Pokemon {
                     + Starter.maxStarterHealth + "\n Strength: " + Starter.starterAttack + "\n Speed: " + Starter.starterSpeed);
 
             showMessageDialog(null, pokemon2.name + "'s stats are: \n Health: "
-                    + pokemon2.health + "\n Attack: " + pokemon2.attack + "\n Speed: " + pokemon2.speed);
-            exp(pokemon2.health, pokemon2.attack, pokemon2.speed);
+                    + health + "\n Attack: " + attack + "\n Speed: " + speed);
+            exp(health, attack, speed);
 
-            if (Starter.starterSpeed > pokemon2.speed) {
+            if (Starter.starterSpeed > speed) {
                 showMessageDialog(null, Starter.newStarter + " begins the fight against " + pokemon2.name);
-            } else if (pokemon2.speed > Starter.starterSpeed) {
+            } else if (speed > Starter.starterSpeed) {
                 showMessageDialog(null, pokemon2.name + " begins the fight against " + Starter.newStarter);
             }
 
             do {
                 //When your starter moves first
-                if (Starter.starterSpeed > pokemon2.speed) {
+                if (Starter.starterSpeed > speed) {
 
                     Object selection = null;
-                    if (starterHealth > 0 && pokemon2.health > 0) {
+                    if (starterHealth > 0 && health > 0) {
 
                         Object[] selectionValues = {"Attack", "Special Attack", "Run"};
                         String initialSelection = "Attack";
@@ -77,25 +77,25 @@ public class Pokemon {
                         showMessageDialog(null, Starter.newStarter + " attacks " + pokemon2.name);
                         // Does a random amount of damage from 0 to the Pokemon's attack value
                         randomDamage = randomDamage(0, Starter.starterAttack);
-                        pokemon2.health = pokemon2.health - randomDamage;
+                        health = health - randomDamage;
                         showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
-                                pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                                pokemon2.name + " and " + pokemon2.name + " has " + health + " left.");
                     } else if (selection == "Run") {
                         showMessageDialog(null, Starter.newStarter + " ran away from " + pokemon2.name);
                         System.exit(0);
                     }
-                    if (starterHealth > 0 && pokemon2.health > 0) {
+                    if (starterHealth > 0 && health > 0) {
                         showMessageDialog(null, pokemon2.name + " attacks " + Starter.newStarter);
                         // Does a random amount of damage from 0 to the Pokemon's attack value
-                        randomDamage = randomDamage(0, pokemon2.attack);
+                        randomDamage = randomDamage(0, attack);
                         starterHealth = starterHealth - randomDamage;
                         showMessageDialog(null, pokemon2.name + " does " + randomDamage + " damage to " +
                                 Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
                     }
 
                     //When Pokemon 2 moves first
-                } else if (pokemon2.speed > Starter.starterSpeed) {
-                    if (starterHealth > 0 && pokemon2.health > 0) {
+                } else if (speed > Starter.starterSpeed) {
+                    if (starterHealth > 0 && health > 0) {
 
                         Object[] selectionValues = {"Attack", "Special Attack", "Run"};
                         String initialSelection = "Attack";
@@ -106,18 +106,18 @@ public class Pokemon {
 
                             showMessageDialog(null, pokemon2.name + " attacks " + Starter.newStarter);
                             // Does a random amount of damage from 0 to the Pokemon's attack value
-                            randomDamage = randomDamage(0, pokemon2.attack);
+                            randomDamage = randomDamage(0, attack);
                             starterHealth = starterHealth - randomDamage;
                             showMessageDialog(null, pokemon2.name + " does " + randomDamage + " damage to " +
                                     Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
 
-                            if (starterHealth > 0 && pokemon2.health > 0) {
+                            if (starterHealth > 0 && health > 0) {
                                 showMessageDialog(null, Starter.newStarter + " attacks " + pokemon2.name);
                                 // Does a random amount of damage from 0 to the Pokemon's attack value
                                 randomDamage = randomDamage(0, Starter.starterAttack);
-                                pokemon2.health = pokemon2.health - randomDamage;
+                                health = health - randomDamage;
                                 showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
-                                        pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                                        pokemon2.name + " and " + pokemon2.name + " has " + health + " left.");
                             }
                         } else if (selection == "Run") {
                             showMessageDialog(null, Starter.newStarter + " ran away from " + pokemon2.name);
@@ -126,12 +126,12 @@ public class Pokemon {
                     }
 
                     //Initializes the randomizer when the Pokemon's speeds are the same value
-                } else if (Starter.starterSpeed == pokemon2.speed) {
+                } else if (Starter.starterSpeed == speed) {
                     int randomSpeed = getRandomSpeed();
                     if (randomSpeed == 1) {
                         Object selection = null;
 
-                        if (starterHealth > 0 && pokemon2.health > 0) {
+                        if (starterHealth > 0 && health > 0) {
 
                             Object[] selectionValues = {"Attack", "Special Attack", "Run"};
                             String initialSelection = "Attack";
@@ -143,24 +143,24 @@ public class Pokemon {
                             showMessageDialog(null, Starter.newStarter + " attacks " + pokemon2.name);
                             // Does a random amount of damage from 0 to the Pokemon's attack value
                             randomDamage = randomDamage(0, Starter.starterAttack);
-                            pokemon2.health = pokemon2.health - randomDamage;
+                            health = health - randomDamage;
                             showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
-                                    pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                                    pokemon2.name + " and " + pokemon2.name + " has " + health + " left.");
                         } else if (selection == "Run") {
                             showMessageDialog(null, Starter.newStarter + " ran away from " + pokemon2.name);
                             System.exit(0);
                         }
-                        if (starterHealth > 0 && pokemon2.health > 0) {
+                        if (starterHealth > 0 && health > 0) {
                             showMessageDialog(null, pokemon2.name + " attacks " + Starter.newStarter);
                             // Does a random amount of damage from 0 to the Pokemon's attack value
-                            randomDamage = randomDamage(0, pokemon2.attack);
+                            randomDamage = randomDamage(0, attack);
                             starterHealth = starterHealth - randomDamage;
                             showMessageDialog(null, pokemon2.name + " does " + randomDamage + " damage to " +
                                     Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
 
                         }
                     } else if (randomSpeed == 2) {
-                        if (starterHealth > 0 && pokemon2.health > 0) {
+                        if (starterHealth > 0 && health > 0) {
 
                             Object[] selectionValues = {"Attack", "Special Attack", "Run"};
                             String initialSelection = "Attack";
@@ -171,18 +171,18 @@ public class Pokemon {
 
                                 showMessageDialog(null, pokemon2.name + " attacks " + Starter.newStarter);
                                 // Does a random amount of damage from 0 to the Pokemon's attack value
-                                randomDamage = randomDamage(0, pokemon2.attack);
+                                randomDamage = randomDamage(0, attack);
                                 starterHealth = starterHealth - randomDamage;
                                 showMessageDialog(null, pokemon2.name + " does " + randomDamage + " damage to " +
                                         Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
 
-                                if (starterHealth > 0 && pokemon2.health > 0) {
+                                if (starterHealth > 0 && health > 0) {
                                     showMessageDialog(null, Starter.newStarter + " attacks " + pokemon2.name);
                                     // Does a random amount of damage from 0 to the Pokemon's attack value
                                     randomDamage = randomDamage(0, Starter.starterAttack);
-                                    pokemon2.health = pokemon2.health - randomDamage;
+                                    health = health - randomDamage;
                                     showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
-                                            pokemon2.name + " and " + pokemon2.name + " has " + pokemon2.health + " left.");
+                                            pokemon2.name + " and " + pokemon2.name + " has " + health + " left.");
                                 }
                             } else if (selection == "Run") {
                                 showMessageDialog(null, Starter.newStarter + " ran away from " + pokemon2.name);
@@ -194,23 +194,23 @@ public class Pokemon {
                 }
 
 
-            } while (starterHealth > 0 && pokemon2.health > 0);
+            } while (starterHealth > 0 && health > 0);
             if (starterHealth < 1)
                 showMessageDialog(null, Starter.newStarter + " has been reduced to 0 health. "
                         + Starter.newStarter + " has lost the fight.");
 
             else showMessageDialog(null, pokemon2.name + " has been reduced to 0 health. "
                     + pokemon2.name + " has lost the fight.");
-            pokemon2.status = false;
+            status = false;
             showMessageDialog(null, Starter.newStarter + " has gained "
                     + getExp + " experience.");
             showMessageDialog(null, Starter.newStarter + " now has "
                     + totalExp + " total experience.");
             expCheck();
-            WildPokemon.resetStats();
+            //WildPokemon.resetStatsZone1();
             Starter.resetStarterHealth();
             battleAgain();
-        } while (pokemon2.status == true);
+        } while (status == true);
 
 
 
