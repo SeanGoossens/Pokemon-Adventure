@@ -53,7 +53,7 @@ class Starter {
         }
     }
 
-    static void getNewStarter(String newStarter) {
+    public static void createNewStarter(String newStarter) {
         JOptionPane.showMessageDialog(null, "Ah so you have chosen " + newStarter + "! Great choice.");
         if (newStarter == "Charmander") {
             maxStarterHealth = randomStarterHealth(18,22);
@@ -71,8 +71,8 @@ class Starter {
             starterSpeed = randomStarterSpeed(4,6);
 
         }
-    }
 
+    }
     public static void resetStarterHealth(){
         Pokemon.starterHealth = maxStarterHealth;
     }
