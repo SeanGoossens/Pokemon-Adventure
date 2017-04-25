@@ -35,8 +35,12 @@ class WildPokemon {
         pokemonZone1.add(rattata);
         Pokemon pidgey = new Pokemon("Pidgey",randomHealth(12,17),randomAttack(3,4),randomSpeed(2,5), true);
         pokemonZone1.add(pidgey);
-        Pokemon caterpie = new Pokemon("Caterpie",randomHealth(20,23),randomAttack(3,4),randomSpeed(2,5), true);
+        Pokemon caterpie = new Pokemon("Caterpie",randomHealth(20,23),randomAttack(3,4),randomSpeed(3,7), true);
         pokemonZone2.add(caterpie);
+        Pokemon weedle = new Pokemon("Weedle",randomHealth(18,22),randomAttack(3,6),randomSpeed(3,6), true);
+        pokemonZone2.add(weedle);
+        Pokemon metapod = new Pokemon("Metapod",randomHealth(24,27),randomAttack(3,5),randomSpeed(3,7), true);
+        pokemonZone2.add(metapod);
 
 }
 

@@ -19,4 +19,4 @@ FEATURES TO IMPLEMENT
 - Add new commands (<s>attack</s>, special attack, <s>run</s>)
 - Special Attacks (Burn, Paralyze, Leech Seed?)
 - Create pokemon centers
-- Create pokemon zones
+- <s>Create pokemon zones</s>

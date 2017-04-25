@@ -17,17 +17,18 @@ public class PokemonTester {
 
         WildPokemon wildPokemon = new WildPokemon();
 
-        JDialog.setDefaultLookAndFeelDecorated(true);
-        Object[] selectionValues = {"Zone 1 (Easy)", "Zone 2 (Medium)"};
-        String initialSelection = "Zone 1";
+        do {JDialog.setDefaultLookAndFeelDecorated(true);
+        Object[] selectionValues = {"Pallet Town (Easy)", "Veridian Forest (Medium)"};
+        String initialSelection = "Pallet Town (Easy)";
         Object selection = JOptionPane.showInputDialog(null, "Which zone would you like to battle in?",
                 "Pokemon Adventure", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
-        if (selection == "Zone 1 (Easy)") {
-            JOptionPane.showMessageDialog(null, "You have chosen Zone 1!");
+        if (selection == "Pallet Town (Easy)") {
+            JOptionPane.showMessageDialog(null, "You have chosen Pallet Town!");
             new Battle(starter, wildPokemon.getRandomPokemonZone1());
-        } else if (selection == "Zone 2 (Medium)") {
-            JOptionPane.showMessageDialog(null, "You have chosen Zone 2!");
+        } else if (selection == "Veridian Forest (Medium)") {
+            JOptionPane.showMessageDialog(null, "You have chosen Veridian Forest!");
             new Battle(starter, wildPokemon.getRandomPokemonZone2());
         }
+        } while (true);
     }
 }
