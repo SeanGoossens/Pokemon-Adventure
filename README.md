@@ -15,8 +15,11 @@ FEATURES TO IMPLEMENT
 - <s>Create a randomizer if both pokemon have the same speed</s>
 - <s>Create battle again dialog</s>
 - Tweak damage range instead of 0-max
-- Create random pokemon
-- Add new commands (<s>attack</s>, special attack, <s>run</s>)
-- Special Attacks (Burn, Paralyze, Leech Seed?)
-- Create pokemon centers
+- <s>Create random pokemon</s>
+- <s>Add new commands (attack, special attack, run)</s>
+- <s>Reset stats after battle</s>
 - <s>Create pokemon zones</s>
+
+Changelog
+
+<u>4/25/2017</u> - Added new Pokemon zones, implemented Special Attack, cleaned up unused variables, battle now loops until battleAgain() returns false. 

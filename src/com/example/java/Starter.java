@@ -34,7 +34,6 @@ class Starter {
         return (int)(Math.random() * range) + min;
     }
 
-// Possible change to getting user input from a dialogue window? https://docs.oracle.com/javase/tutorial/uiswing/components/dialog.html
 
     static void selectStarter() {
         JDialog.setDefaultLookAndFeelDecorated(true);
@@ -64,12 +63,12 @@ class Starter {
 
         } else if (newStarter == "Squirtle") {
             maxStarterHealth = randomStarterHealth(23,27);
-            starterAttack = randomStarterAttack(3,5);
-            starterSpeed = randomStarterSpeed(4,6);
+            starterAttack = randomStarterAttack(4,6);
+            starterSpeed = randomStarterSpeed(3,6);
 
         } else if (newStarter == "Bulbasaur") {
-            maxStarterHealth = randomStarterHealth(18,22);
-            starterAttack = randomStarterAttack(4,6);
+            maxStarterHealth = randomStarterHealth(20,24);
+            starterAttack = randomStarterAttack(3,6);
             starterSpeed = randomStarterSpeed(4,6);
 
         }

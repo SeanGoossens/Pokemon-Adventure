@@ -1,9 +1,7 @@
 package com.example.java;
 
 import javax.swing.*;
-
 import java.util.Random;
-
 import static com.example.java.Starter.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
@@ -14,7 +12,9 @@ public class Battle {
     private static int randomDamage;
     private static int getExp;
     private static int totalExp;
+    private static int specialDamage;
     public int starterHealth = Starter.maxStarterHealth;
+    private static int attackCount = 0;
 
 
 
@@ -22,9 +22,10 @@ public class Battle {
             //Show stats of both Pokemon before the battle
             JOptionPane.showMessageDialog(null, "Your " + Starter.newStarter + "'s (Lvl. " + Starter.starterLevel + ") stats are: \n Health: "
                     + Starter.maxStarterHealth + "\n Attack: " + Starter.starterAttack + "\n Speed: " + Starter.starterSpeed);
-
             showMessageDialog(null, wildPokemon.name + "'s stats are: \n Health: "
                     + wildPokemon.health + "\n Attack: " + wildPokemon.attack + "\n Speed: " + wildPokemon.speed);
+
+            //Sets possible exp gain from the wild Pokemon.
             exp(wildPokemon.health, wildPokemon.attack, wildPokemon.speed);
 
             if (Starter.starterSpeed > wildPokemon.speed) {
@@ -47,6 +48,7 @@ public class Battle {
 
                     }
                     if (selection == "Attack") {
+                        attackCount = attackCount + 1;
                         showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
                         // Does a random amount of damage from 0 to the Pokemon's attack value
                         randomDamage = randomDamage(0, Starter.starterAttack);
@@ -56,17 +58,33 @@ public class Battle {
                     } else if (selection == "Run") {
                         showMessageDialog(null, Starter.newStarter + " ran away from " + wildPokemon.name);
                         System.exit(0);
-                    }
+                    } else if (selection == "Special Attack" && attackCount > 10) {
+                        attackCount = attackCount - 10;
+                        showMessageDialog(null, Starter.newStarter + " used its Special Attack!");
+                        specialDamage = starterAttack;
+                        wildPokemon.health = wildPokemon.health - specialDamage;
+                        showMessageDialog(null, Starter.newStarter + " does " + specialDamage + " damage to " +
+                                wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");
+                    } else if (selection == "Special Attack" && attackCount < 10) {
+                        showMessageDialog(null, Starter.newStarter + " does not have enough charges to use its Special Attack!");
+                        showMessageDialog(null, Starter.newStarter + " has " + attackCount + " charges. It needs 10 to use Special Attack.");
+                        showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
+                        attackCount = attackCount + 1;
+                        randomDamage = randomDamage(0, Starter.starterAttack);
+                        wildPokemon.health = wildPokemon.health - randomDamage;
+                        showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
+                                wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");}
+
                     if (starterHealth > 0 && wildPokemon.health > 0) {
                         showMessageDialog(null, wildPokemon.name + " attacks " + Starter.newStarter);
-                        // Does a random amount of damage from 0 to the Pokemon's attack value
                         randomDamage = randomDamage(0, wildPokemon.attack);
                         starterHealth = starterHealth - randomDamage;
                         showMessageDialog(null, wildPokemon.name + " does " + randomDamage + " damage to " +
                                 Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
                     }
 
-                    //When Pokemon 2 moves first
+                    // When Pokemon 2 moves first
+
                 } else if (wildPokemon.speed > Starter.starterSpeed) {
                     if (starterHealth > 0 && wildPokemon.health > 0) {
 
@@ -78,15 +96,14 @@ public class Battle {
                         if (selection == "Attack") {
 
                             showMessageDialog(null, wildPokemon.name + " attacks " + Starter.newStarter);
-                            // Does a random amount of damage from 0 to the Pokemon's attack value
                             randomDamage = randomDamage(0, wildPokemon.attack);
                             starterHealth = starterHealth - randomDamage;
                             showMessageDialog(null, wildPokemon.name + " does " + randomDamage + " damage to " +
                                     Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
 
                             if (starterHealth > 0 && wildPokemon.health > 0) {
+                                attackCount = attackCount + 1;
                                 showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
-                                // Does a random amount of damage from 0 to the Pokemon's attack value
                                 randomDamage = randomDamage(0, Starter.starterAttack);
                                 wildPokemon.health = wildPokemon.health - randomDamage;
                                 showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
@@ -95,7 +112,22 @@ public class Battle {
                         } else if (selection == "Run") {
                             showMessageDialog(null, Starter.newStarter + " ran away from " + wildPokemon.name);
                             System.exit(0);
-                        }
+                        } else if (selection == "Special Attack" && attackCount > 10) {
+                            attackCount = attackCount - 10;
+                            showMessageDialog(null, Starter.newStarter + " used its Special Attack!");
+                            specialDamage = starterAttack;
+                            wildPokemon.health = wildPokemon.health - specialDamage;
+                            showMessageDialog(null, Starter.newStarter + " does " + specialDamage + " damage to " +
+                                    wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");
+                        } else if (selection == "Special Attack" && attackCount < 10) {
+                            showMessageDialog(null, Starter.newStarter + " does not have enough charges to use its Special Attack!");
+                            showMessageDialog(null, Starter.newStarter + " has " + attackCount + " charges. It needs 10 to use Special Attack.");
+                            showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
+                            attackCount = attackCount + 1;
+                            randomDamage = randomDamage(0, Starter.starterAttack);
+                            wildPokemon.health = wildPokemon.health - randomDamage;
+                            showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
+                                    wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");}
                     }
 
                     //Initializes the randomizer when the Pokemon's speeds are the same value
@@ -113,8 +145,8 @@ public class Battle {
 
                         }
                         if (selection == "Attack") {
+                            attackCount = attackCount + 1;
                             showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
-                            // Does a random amount of damage from 0 to the Pokemon's attack value
                             randomDamage = randomDamage(0, Starter.starterAttack);
                             wildPokemon.health = wildPokemon.health - randomDamage;
                             showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
@@ -122,10 +154,24 @@ public class Battle {
                         } else if (selection == "Run") {
                             showMessageDialog(null, Starter.newStarter + " ran away from " + wildPokemon.name);
                             System.exit(0);
-                        }
+                        } else if (selection == "Special Attack" && attackCount > 10) {
+                            attackCount = attackCount - 10;
+                            showMessageDialog(null, Starter.newStarter + " used its Special Attack!");
+                            specialDamage = starterAttack;
+                            wildPokemon.health = wildPokemon.health - specialDamage;
+                            showMessageDialog(null, Starter.newStarter + " does " + specialDamage + " damage to " +
+                                    wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");
+                        } else if (selection == "Special Attack" && attackCount < 10) {
+                            showMessageDialog(null, Starter.newStarter + " does not have enough charges to use its Special Attack!");
+                            showMessageDialog(null, Starter.newStarter + " has " + attackCount + " charges. It needs 10 to use Special Attack.");
+                            showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
+                            attackCount = attackCount + 1;
+                            randomDamage = randomDamage(0, Starter.starterAttack);
+                            wildPokemon.health = wildPokemon.health - randomDamage;
+                            showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
+                                    wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");}
                         if (starterHealth > 0 && wildPokemon.health > 0) {
                             showMessageDialog(null, wildPokemon.name + " attacks " + Starter.newStarter);
-                            // Does a random amount of damage from 0 to the Pokemon's attack value
                             randomDamage = randomDamage(0, wildPokemon.attack);
                             starterHealth = starterHealth - randomDamage;
                             showMessageDialog(null, wildPokemon.name + " does " + randomDamage + " damage to " +
@@ -134,24 +180,21 @@ public class Battle {
                         }
                     } else if (randomSpeed == 2) {
                         if (starterHealth > 0 && wildPokemon.health > 0) {
-
                             Object[] selectionValues = {"Attack", "Special Attack", "Run"};
                             String initialSelection = "Attack";
                             Object selection = JOptionPane.showInputDialog(null, "What will you do?",
                                     "Pokemon Adventure", JOptionPane.QUESTION_MESSAGE, null, selectionValues, initialSelection);
 
                             if (selection == "Attack") {
-
                                 showMessageDialog(null, wildPokemon.name + " attacks " + Starter.newStarter);
-                                // Does a random amount of damage from 0 to the Pokemon's attack value
                                 randomDamage = randomDamage(0, wildPokemon.attack);
                                 starterHealth = starterHealth - randomDamage;
                                 showMessageDialog(null, wildPokemon.name + " does " + randomDamage + " damage to " +
                                         Starter.newStarter + " and " + Starter.newStarter + " has " + starterHealth + " left.");
 
                                 if (starterHealth > 0 && wildPokemon.health > 0) {
+                                    attackCount = attackCount + 1;
                                     showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
-                                    // Does a random amount of damage from 0 to the Pokemon's attack value
                                     randomDamage = randomDamage(0, Starter.starterAttack);
                                     wildPokemon.health = wildPokemon.health - randomDamage;
                                     showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
@@ -160,7 +203,23 @@ public class Battle {
                             } else if (selection == "Run") {
                                 showMessageDialog(null, Starter.newStarter + " ran away from " + wildPokemon.name);
                                 System.exit(0);
-                            }
+                            } else if (selection == "Special Attack" && attackCount > 10) {
+                                attackCount = attackCount - 10;
+                                showMessageDialog(null, Starter.newStarter + " used its Special Attack!");
+                                specialDamage = starterAttack;
+                                wildPokemon.health = wildPokemon.health - specialDamage;
+                                showMessageDialog(null, Starter.newStarter + " does " + specialDamage + " damage to " +
+                                        wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");
+                            } else if (selection == "Special Attack" && attackCount < 10) {
+                                showMessageDialog(null, Starter.newStarter + " does not have enough charges to use its Special Attack!");
+                                showMessageDialog(null, Starter.newStarter + " has " + attackCount + " charges. It needs 10 to use Special Attack.");
+                                showMessageDialog(null, Starter.newStarter + " attacks " + wildPokemon.name);
+                                attackCount = attackCount + 1;
+                                // Does a random amount of damage from 0 to the Pokemon's attack value
+                                randomDamage = randomDamage(0, Starter.starterAttack);
+                                wildPokemon.health = wildPokemon.health - randomDamage;
+                                showMessageDialog(null, Starter.newStarter + " does " + randomDamage + " damage to " +
+                                        wildPokemon.name + " and " + wildPokemon.name + " has " + wildPokemon.health + " left.");}
                         }
 
                     }
@@ -173,7 +232,7 @@ public class Battle {
                         + Starter.newStarter + " has lost the fight.");
                 starterStatus = false;
 
-//RESETTING WILD POKEMON STATS
+                //RESETTING WILD POKEMON STATS
                 if (wildPokemon.name == "Rattata") {
                     wildPokemon.health = randomHealth(15, 20);
                     wildPokemon.attack = randomAttack(2, 5);
@@ -199,6 +258,21 @@ public class Battle {
                     wildPokemon.attack = randomAttack(3,5);
                     wildPokemon.speed = randomSpeed(3,7);
                     wildPokemon.status = true;
+                } else if (wildPokemon.name == "Geodude") {
+                    wildPokemon.health = randomHealth(25,28);
+                    wildPokemon.attack = randomAttack(6,9);
+                    wildPokemon.speed = randomSpeed(4,7);
+                    wildPokemon.status = true;
+                } else if (wildPokemon.name == "Zubat") {
+                    wildPokemon.health = randomHealth(23,28);
+                    wildPokemon.attack = randomAttack(5,10);
+                    wildPokemon.speed = randomSpeed(5,12);
+                    wildPokemon.status = true;
+                } else if (wildPokemon.name == "Clefairy") {
+                    wildPokemon.health = randomHealth(28,32);
+                    wildPokemon.attack = randomAttack(4,7);
+                    wildPokemon.speed = randomSpeed(4,8);
+                    wildPokemon.status = true;
                 }
                 expCheck();
                 Starter.resetStarterHealth();
@@ -213,7 +287,7 @@ public class Battle {
                         + totalExp + " total experience.");
                 starterStatus = true;
                 expCheck();
-//RESETTING WILD POKEMON STATS
+                //RESETTING WILD POKEMON STATS
                 if (wildPokemon.name == "Rattata") {
                     wildPokemon.health = randomHealth(15, 20);
                     wildPokemon.attack = randomAttack(2, 5);
@@ -239,6 +313,21 @@ public class Battle {
                     wildPokemon.attack = randomAttack(3,5);
                     wildPokemon.speed = randomSpeed(3,7);
                     wildPokemon.status = true;
+                } else if (wildPokemon.name == "Geodude") {
+                    wildPokemon.health = randomHealth(25,28);
+                    wildPokemon.attack = randomAttack(6,9);
+                    wildPokemon.speed = randomSpeed(4,7);
+                    wildPokemon.status = true;
+                } else if (wildPokemon.name == "Zubat") {
+                    wildPokemon.health = randomHealth(23,28);
+                    wildPokemon.attack = randomAttack(5,10);
+                    wildPokemon.speed = randomSpeed(5,12);
+                    wildPokemon.status = true;
+                } else if (wildPokemon.name == "Clefairy") {
+                    wildPokemon.health = randomHealth(28,32);
+                    wildPokemon.attack = randomAttack(4,7);
+                    wildPokemon.speed = randomSpeed(4,8);
+                    wildPokemon.status = true;
                 }
                 Starter.resetStarterHealth();
                 battleAgain();
@@ -247,7 +336,7 @@ public class Battle {
 
 
 
-
+    //Damage randomizer from 0 to max.
     private static int randomDamage(int min, int max) {
         int range = (max - min) + 1;
         return (int) (Math.random() * range) + min;
@@ -270,15 +359,17 @@ public class Battle {
         return i;
     }
 
-    //Experience
+    //Sets the experience possible at the beginning of the battle. Does not get the experience.
     private static void exp(int health, int attack, int speed){
         getExp = health + attack + speed;
     }
 
+    //Pulls the experience after the starter wins
     private static void getExp() {
         totalExp = getExp + totalExp;
     }
 
+    //Checks the status of the starter, checks levels and experience accordingly
     private static void expCheck(){
         if (starterStatus == false) {
             showMessageDialog(null, Starter.newStarter + " does not gain any experience");
@@ -322,6 +413,7 @@ public class Battle {
         }
     }
 
+    //Prompt the user to battle again. Selecting yes will run the battle cycle again, no will exit the console.
     static void battleAgain(){
         JDialog.setDefaultLookAndFeelDecorated(true);
         int response = JOptionPane.showConfirmDialog(null, "Do you want to battle again?", "Confirm",

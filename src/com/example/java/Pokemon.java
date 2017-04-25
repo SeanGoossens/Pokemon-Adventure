@@ -1,12 +1,6 @@
 package com.example.java;
 
-import javax.swing.*;
-import java.util.Random;
 
-
-import static javax.swing.JOptionPane.*;
-
-// Not sure whether to make these private or public
 public class Pokemon {
 
     public static int starterHealth;
