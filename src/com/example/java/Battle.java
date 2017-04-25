@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import java.util.Random;
 
+import static com.example.java.Starter.starterStatus;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
@@ -11,14 +12,12 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class Battle {
 
-    public int health;
-    public int speed;
-    public int attack;
-    public boolean status;
+
     private static int randomDamage;
     private static int getExp;
     private static int totalExp;
     public int starterHealth = Starter.maxStarterHealth;
+
 
 
     Battle(Starter starter, Pokemon wildPokemon) {
@@ -29,7 +28,7 @@ public class Battle {
 
             showMessageDialog(null, wildPokemon.name + "'s stats are: \n Health: "
                     + wildPokemon.health + "\n Attack: " + wildPokemon.attack + "\n Speed: " + wildPokemon.speed);
-            exp(wildPokemon.health, wildPokemon.attack, speed);
+            exp(wildPokemon.health, wildPokemon.attack, wildPokemon.speed);
 
             if (Starter.starterSpeed > wildPokemon.speed) {
                 showMessageDialog(null, Starter.newStarter + " begins the fight against " + wildPokemon.name);
@@ -178,16 +177,27 @@ public class Battle {
 
             else showMessageDialog(null, wildPokemon.name + " has been reduced to 0 health. "
                     + wildPokemon.name + " has lost the fight.");
-            status = false;
-            showMessageDialog(null, Starter.newStarter + " has gained "
+                        showMessageDialog(null, Starter.newStarter + " has gained "
                     + getExp + " experience.");
             showMessageDialog(null, Starter.newStarter + " now has "
                     + totalExp + " total experience.");
+            starterStatus = true;
             expCheck();
-            //WildPokemon.resetStatsZone1();
+            if (wildPokemon.name == "Rattata") {
+                wildPokemon.health = randomHealth(15, 20);
+                wildPokemon.attack = randomAttack(2, 5);
+                wildPokemon.speed = randomSpeed(3, 6);
+                wildPokemon.status = true;
+            } else if (wildPokemon.name == "Pidgey") {
+                wildPokemon.health = randomHealth(12, 17);
+                wildPokemon.attack = randomAttack(3, 4);
+                wildPokemon.speed = randomSpeed(2, 5);
+                wildPokemon.status = true;
+            }
             Starter.resetStarterHealth();
             battleAgain();
-        } while (true == status);
+
+        } while (starterStatus == true);
     }
 
 
@@ -254,10 +264,34 @@ public class Battle {
             System.exit(0);
         } else if (response == JOptionPane.YES_OPTION) {
             showMessageDialog(null,"Let's battle again!");
+            }
         }
+
+/* Not working currently
+    public static void resetStats() {
+        Pokemon.health = randomHealth(15, 20);
+        Pokemon.attack = randomAttack(2, 5);
+        Pokemon.speed = randomSpeed(3, 6);
+        Pokemon.status = true;
+    }
+    */
+
+
+    private static int randomHealth(int min, int max) {
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
+    private static int randomAttack(int min, int max) {
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
+    private static int randomSpeed(int min, int max) {
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
     }
 
 
+//Stat increases
     private static int randomHealthIncrease(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;

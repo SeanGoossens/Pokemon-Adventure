@@ -13,7 +13,7 @@ public class PokemonTester {
     public static void main(String[] args) {
         Starter.selectStarter();
         Starter.createNewStarter(newStarter);
-        Starter starter = new Starter(newStarter, maxStarterHealth, starterAttack, starterSpeed);
+        Starter starter = new Starter(newStarter, maxStarterHealth, starterAttack, starterSpeed, starterStatus);
 
         WildPokemon wildPokemon = new WildPokemon();
 

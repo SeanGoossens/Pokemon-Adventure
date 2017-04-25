@@ -17,6 +17,7 @@ public class Pokemon {
     public boolean status;
 
 
+
     public Pokemon(String name, int health, int attack, int speed, boolean status) {
 
         this.name = name;

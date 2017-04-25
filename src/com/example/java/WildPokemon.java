@@ -7,7 +7,9 @@ import java.util.Random;
 class WildPokemon {
 
 
-    private int randomHealth(int min, int max) {
+    private Starter starter;
+
+    public int randomHealth(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
     }
@@ -48,19 +50,6 @@ class WildPokemon {
         return pokemonZone2.get(n);
     }
 
-/*
-    public static void resetStatsZone1() {
-        Pokemon.health = randomHealthZone1(15,20);
-        Pokemon.attack = randomAttackZone1(2,5);
-        Pokemon.speed = randomSpeedZone1(3,6);
-        Pokemon.status = true;
-    }
 
-    public static void resetStatsZone2() {
-        Pokemon.health = randomHealthZone2(20,25);
-        Pokemon.attack = randomAttackZone2(5,7);
-        Pokemon.speed = randomSpeedZone2(5,8);
-        Pokemon.status = true;
-    }
-    */
+
 }

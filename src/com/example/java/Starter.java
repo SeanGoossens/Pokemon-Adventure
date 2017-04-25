@@ -9,13 +9,15 @@ class Starter {
     static int starterAttack;
     static int starterSpeed;
     static int starterLevel = 1;
+    static boolean starterStatus;
 
 
-    Starter(String newStarter, int starterHealth, int starterAttack, int starterSpeed) {
+    Starter(String newStarter, int starterHealth, int starterAttack, int starterSpeed, boolean starterStatus) {
         Starter.newStarter = newStarter;
         Starter.maxStarterHealth = starterHealth;
         Starter.starterAttack = starterAttack;
         Starter.starterSpeed = starterSpeed;
+        Starter.starterStatus = starterStatus;
     }
 
 
